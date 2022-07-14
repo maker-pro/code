@@ -1,5 +1,6 @@
 <?php
 
+// 参考 https://blog.csdn.net/qq_19782019/article/details/88117150
 define('OLDGROUPNUM', 3);
 define('OLDGROUPBISNUM', 8);
 define('NEWGROUPNUM', 4);
@@ -29,7 +30,6 @@ function SelfBase64Encode($needEncodeString = '') {
 			}
 			// str_split(字符串, 每段的长度) 把字符串按照每段长度分成数组 str_split('1234', 2) -> ['12', '34']
 			$char_bins = str_split($char_bin, NEWGROUPBISNUM);
-			echo $char_bin . PHP_EOL;
 			$base64_encode_string .= implode('', array_map('ToString', $char_bins));
 
 			// 每隔三个字符重新计算
@@ -56,4 +56,4 @@ function ToString($bin) {
 	return $encode[base_convert($bin, 2, 10)];
 }
 
-var_dump(SelfBase64Encode('this is apple'));
+var_dump(SelfBase64Encode('apple'));
